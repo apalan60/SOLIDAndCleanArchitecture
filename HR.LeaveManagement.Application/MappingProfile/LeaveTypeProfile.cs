@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using HR.LeaveManagement.Application.Features.Queries.GetAllLeaveTypes;
 using HR.LeaveManagement.Domain;
 
 namespace HR.LeaveManagement.Application.MappingProfile;
