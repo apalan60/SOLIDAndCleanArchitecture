@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using HR.LeaveManagement.Application.Features.Queries.GetAllLeaveTypes;
+using HR.LeaveManagement.Application.Features.Queries.GetLeaveTypeDetail;
 using HR.LeaveManagement.Domain;
 
 namespace HR.LeaveManagement.Application.MappingProfile;
@@ -13,6 +14,8 @@ public class LeaveTypeProfile : Profile
 {
     public LeaveTypeProfile()
     {
-        CreateMap<LeaveTypeDto, LeaveType>().ReverseMap();
+        CreateMap<LeaveTypeDto, LeaveType>().ReverseMap(); //類別有需要往回轉型時添加，此處為示範
+
+        CreateMap<LeaveType, LeaveTypeDetailsDto>();
     }
 }
