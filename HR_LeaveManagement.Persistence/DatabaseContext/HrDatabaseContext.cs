@@ -20,6 +20,13 @@ public class HrDatabaseContext : DbContext
     public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
     public DbSet<LeaveRequest> LeaveRequests { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(HrDatabaseContext).Assembly);
+
+        base.OnModelCreating(modelBuilder);
+    }
+
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) 
     {
         foreach (var baseEntityEntry in base.ChangeTracker.Entries<BaseEntity>()
