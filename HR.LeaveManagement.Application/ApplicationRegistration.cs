@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application;
 
-public static class ApplicationRegistraction
+public static class ApplicationRegistration
 {
     public static IServiceCollection AddServiceRegisteraction(this IServiceCollection services) 
     {
