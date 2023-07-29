@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.Queries.GetLeaveTypeDetail;
+namespace HR.LeaveManagement.Application.Features.LeaveTypeFeature.Queries.GetLeaveTypeDetail;
 
 public class GetLeaveTypeDetailHandler : IRequestHandler<GetLeaveTypeDetailQuery, LeaveTypeDetailsDto>
 {
@@ -17,8 +17,8 @@ public class GetLeaveTypeDetailHandler : IRequestHandler<GetLeaveTypeDetailQuery
 
     public GetLeaveTypeDetailHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
     {
-        this._mapper = mapper;
-        this._leaveTypeRepository = leaveTypeRepository;
+        _mapper = mapper;
+        _leaveTypeRepository = leaveTypeRepository;
     }
     public async Task<LeaveTypeDetailsDto> Handle(GetLeaveTypeDetailQuery request, CancellationToken cancellationToken)
     {

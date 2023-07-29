@@ -9,23 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.Commands.DeleteLeaveType;
+namespace HR.LeaveManagement.Application.Features.LeaveTypeFeature.Commands.DeleteLeaveType;
 
 public class DeleteLeaveTypeCommandHandler : IRequestHandler<DeleteLeaveTypeCommand, Unit>
 {
     private readonly ILeaveTypeRepository _leaveTypeRepository;
 
-    public DeleteLeaveTypeCommandHandler(ILeaveTypeRepository leaveTypeRepository)   
-    =>   this._leaveTypeRepository = leaveTypeRepository;
-    
+    public DeleteLeaveTypeCommandHandler(ILeaveTypeRepository leaveTypeRepository)
+    => _leaveTypeRepository = leaveTypeRepository;
+
 
     public async Task<Unit> Handle(DeleteLeaveTypeCommand request, CancellationToken cancellationToken)
     {
         LeaveType? leaveType = await _leaveTypeRepository.GetByIdAsync(request.Id);
 
-        if (leaveType == null) 
+        if (leaveType == null)
         {
-            throw new NotFoundException(nameof(LeaveType),request.Id);
+            throw new NotFoundException(nameof(LeaveType), request.Id);
         }
 
         await _leaveTypeRepository.DeleteAsync(leaveType);

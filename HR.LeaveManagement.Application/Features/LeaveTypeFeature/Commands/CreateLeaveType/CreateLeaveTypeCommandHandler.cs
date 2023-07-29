@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.Commands.CreateLeaveType;
+namespace HR.LeaveManagement.Application.Features.LeaveTypeFeature.Commands.CreateLeaveType;
 
 public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, int>
 {
@@ -18,18 +18,18 @@ public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeComm
 
     public CreateLeaveTypeCommandHandler(IMapper mapper, ILeaveTypeRepository leaveTypeRepository)
     {
-        this._mapper = mapper;
-        this._leaveTypeRepository = leaveTypeRepository;
+        _mapper = mapper;
+        _leaveTypeRepository = leaveTypeRepository;
     }
 
     public async Task<int> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
     {
         var validator = new CreateLeaveTypeCommandValidator(_leaveTypeRepository);
         var validationResult = await validator.ValidateAsync(request);
-        if (validationResult.Errors.Any()) 
+        if (validationResult.Errors.Any())
             throw new BadRequestException("Invalid Leavetype", validationResult);
-        
-        LeaveType leaveType = _mapper.Map<LeaveType>(request);
+
+        var leaveType = _mapper.Map<Domain.LeaveType>(request);
 
         await _leaveTypeRepository.CreateAsync(leaveType);
 

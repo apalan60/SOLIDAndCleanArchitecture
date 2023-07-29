@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR.LeaveManagement.Application.Features.Commands.CreateLeaveType;
+namespace HR.LeaveManagement.Application.Features.LeaveTypeFeature.Commands.UpdateLeaveType;
 
-public class CreateLeaveTypeCommand : IRequest<int>  //return created Id
+public class UpdateLeaveTypeCommand : IRequest<Unit>  // return Unit = Void
 {
+    public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public int DefaultDays { get; set; }
 

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using FluentValidation;
 using HR.LeaveManagement.Application.Contracts.Persistence;
 
-namespace HR.LeaveManagement.Application.Features.Commands.CreateLeaveType;
+namespace HR.LeaveManagement.Application.Features.LeaveTypeFeature.Commands.CreateLeaveType;
 
 public class CreateLeaveTypeCommandValidator : AbstractValidator<CreateLeaveTypeCommand>
 {
     private readonly ILeaveTypeRepository _leaveTypeRepository;
     public CreateLeaveTypeCommandValidator(ILeaveTypeRepository leaveTypeRepository)
     {
-        this._leaveTypeRepository = leaveTypeRepository;
+        _leaveTypeRepository = leaveTypeRepository;
 
         //client side
         RuleFor(property => property.Name)
@@ -26,7 +26,7 @@ public class CreateLeaveTypeCommandValidator : AbstractValidator<CreateLeaveType
             .GreaterThan(1).WithMessage("{PropertyName} cannot be less than 100");
 
         //server side
-        RuleFor(q=>q)
+        RuleFor(q => q)
             .MustAsync(LeaveTypeNameUnique).WithMessage("already exists");   //return error if LeaveTypeNameUnique() is false
     }
 
