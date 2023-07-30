@@ -40,9 +40,11 @@ public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeComm
             throw new BadRequestException("Invalid Leave type",validationResult);
         }
 
-        LeaveType leaveType = _mapper.Map<LeaveType>(request);
+        //這個Update的做法有風險，沒有先檢查leaveTypeToUpdate有沒有存在，直接以_mapper.Map new出一個新物件並做更新，
+        //如果屬性欄位變多，並不會想要每次都new出一個新物件來做更新
 
-        await _leaveTypeRepository.UpdateAsync(leaveType);
+        LeaveType leaveTypeToUpdate = _mapper.Map<LeaveType>(request);
+        await _leaveTypeRepository.UpdateAsync(leaveTypeToUpdate);  
 
         return Unit.Value;   //void
     }

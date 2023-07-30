@@ -5,9 +5,6 @@ using HR.LeaveManagement.Application.Features.LeaveTypeFeature.Queries.GetAllLea
 using HR.LeaveManagement.Application.Features.LeaveTypeFeature.Queries.GetLeaveTypeDetail;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Validations;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace HR.LeaveManagement.Api.Controllers
 {
