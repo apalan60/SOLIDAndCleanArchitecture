@@ -3,10 +3,6 @@ using HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLea
 using HR.LeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation;
 using HR.LeaveManagement.Application.Features.LeaveAllocation.Queries.GetAllLeaveAllocations;
 using HR.LeaveManagement.Application.Features.LeaveAllocation.Queries.GetLeaveAllocationDetails;
-using HR.LeaveManagement.Application.Features.LeaveTypeFeature.Commands.CreateLeaveType;
-using HR.LeaveManagement.Application.Features.LeaveTypeFeature.Commands.UpdateLeaveType;
-using HR.LeaveManagement.Application.Features.LeaveTypeFeature.Queries.GetAllLeaveTypes;
-using HR.LeaveManagement.Application.Features.LeaveTypeFeature.Queries.GetLeaveTypeDetail;
 using HR.LeaveManagement.Domain;
 
 namespace HR.LeaveManagement.Application.MappingProfile;
@@ -24,3 +20,6 @@ public class LeaveAllocationProfile : Profile
         CreateMap<UpdateLeaveAllocationCommand, LeaveAllocation>();
     }
 }
+
+
+
