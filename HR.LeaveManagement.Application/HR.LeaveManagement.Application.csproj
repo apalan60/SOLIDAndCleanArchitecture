@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\LeaveTypeFeature123\**" />
+    <EmbeddedResource Remove="Features\LeaveTypeFeature123\**" />
+    <None Remove="Features\LeaveTypeFeature123\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.6.0" />
@@ -16,10 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HR.LeaveManagement.Domain\HR.LeaveManagement.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\LeaveTypeFeature123\" />
   </ItemGroup>
 
 </Project>
