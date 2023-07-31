@@ -11,12 +11,8 @@ public class BadRequestException: Exception
 
     public BadRequestException(string message, ValidationResult validationResult) : this(message)
     {
-        ValidationError = new();
-        foreach (var error in validationResult.Errors) 
-        {
-            ValidationError.Add(error.ErrorMessage);  //ErrorMessage => which setting by WithMessage() 
-        }
+        ValidationError = validationResult.ToDictionary();
     }
 
-    public List<string>? ValidationError { get; set; }
+    public IDictionary<string, string[]>? ValidationError { get; set; }
 }
