@@ -1,4 +1,4 @@
-﻿using HR.LeaveManagement.Application.Models.EMail;
+﻿using HR.LeaveManagement.Application.Models.Email;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +9,5 @@ namespace HR.LeaveManagement.Application.Contracts.Email;
 
 public interface IEmailSender
 {
-    Task<bool> SendEmail(EMailMessage email);
+    Task<bool> SendEmail(EmailMessage email);
 }
